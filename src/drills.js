@@ -47,3 +47,16 @@ const knexInstance = knex({
 
 
 // daysFunction(3);
+
+//Drill #4
+
+// function totalCostPerCategory() {
+//   knexInstance('shopping_list')
+//     .select('category')
+//     .sum('price')
+//     .groupBy('category')
+//     // .orderBy({column: 'total_price', order: 'desc'})
+//     .then(res => console.log(res));
+// }
+
+// totalCostPerCategory();

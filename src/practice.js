@@ -6,9 +6,10 @@ const knexInstance = knex({
   connection: process.env.DB_URL,
 });
 
+
 function mostPopularVideosForDays(days) {
   knexInstance
-    .select('video_name', 'extracredit')
+    .select('video_name', 'region')
     .count('date_viewed AS views')
     .where(
       'date_viewed',
@@ -16,9 +17,9 @@ function mostPopularVideosForDays(days) {
       knexInstance.raw(`now() - '?? days'::INTERVAL`, days)
     )
     .from('whopipe_video_views')
-    .groupBy('video_name', 'extracredit')
+    .groupBy('video_name', 'region')
     .orderBy([
-      { column: 'extracredit', order: 'ASC' },
+      { column: 'region', order: 'ASC' },
       { column: 'views', order: 'DESC' },
     ])
     .then(result => {

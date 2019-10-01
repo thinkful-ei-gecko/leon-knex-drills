@@ -32,3 +32,18 @@ const knexInstance = knex({
 // }
 
 // showPage(2);
+
+//Drill #3
+// function daysFunction(days) {
+//   knexInstance('shopping_list')
+//     .select('name','date_added')
+//     .where(
+//       'date_added',
+//       '>',
+//       knexInstance.raw(`now() - '?? days'::INTERVAL`,days)
+//     )
+//     .then(res => console.log(res));
+// }
+
+
+// daysFunction(3);
